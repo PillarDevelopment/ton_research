@@ -1,0 +1,5 @@
+cd /home/validator/build_ton/utils
+
+lite-client -a 185.95.213.104:8383 -p liteserver.pub
+
+js console

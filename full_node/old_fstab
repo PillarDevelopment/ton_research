@@ -1,0 +1,5 @@
+UUID=9d5fef2c-c1b8-464a-a1dd-ccf7020d7b9d none swap sw 0 0
+UUID=656fe948-7e56-4d4e-8d00-6e219dd5b57f / xfs defaults 0 0
+UUID=4444a515-4f30-4e36-8fec-3d4125af465f /srv xfs defaults 0 0
+
+

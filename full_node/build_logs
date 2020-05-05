@@ -1,0 +1,56 @@
+ is no screen to be attached.
+validator@bootstrap:~$ screen -x
+[ 97%] Built target blockchain-explorer
+Scanning dependencies of target validator-engine
+[ 97%] Building CXX object validator-engine/CMakeFiles/validator-engine.dir/validator-engine.cpp.o
+[ 97%] Linking CXX executable validator-engine
+[ 97%] Built target validator-engine
+Scanning dependencies of target validator-engine-console
+[ 97%] Building CXX object validator-engine-console/CMakeFiles/validator-engine-console.dir/validator-engine-console.cpp.o
+[ 97%] Building CXX object validator-engine-console/CMakeFiles/validator-engine-console.dir/validator-engine-console-query.cpp.o
+[ 97%] Linking CXX executable validator-engine-console
+[ 97%] Built target validator-engine-console
+Scanning dependencies of target create-hardfork
+[ 98%] Building CXX object create-hardfork/CMakeFiles/create-hardfork.dir/create-hardfork.cpp.o
+[ 98%] Linking CXX executable create-hardfork
+[ 98%] Built target create-hardfork
+Scanning dependencies of target dht-server
+[ 98%] Building CXX object dht-server/CMakeFiles/dht-server.dir/dht-server.cpp.o
+[ 98%] Linking CXX executable dht-server
+[ 98%] Built target dht-server
+Scanning dependencies of target generate-random-id
+[ 98%] Building CXX object utils/CMakeFiles/generate-random-id.dir/generate-random-id.cpp.o
+[ 98%] Linking CXX executable generate-random-id
+[ 98%] Built target generate-random-id
+Scanning dependencies of target pack-viewer
+[ 98%] Building CXX object utils/CMakeFiles/pack-viewer.dir/pack-viewer.cpp.o
+[ 98%] Linking CXX executable pack-viewer
+[ 98%] Built target pack-viewer
+Scanning dependencies of target json2tlo
+[ 98%] Building CXX object utils/CMakeFiles/json2tlo.dir/json2tlo.cpp.o
+[ 98%] Linking CXX executable json2tlo
+[ 98%] Built target json2tlo
+Scanning dependencies of target http-proxy
+[ 98%] Building CXX object http/CMakeFiles/http-proxy.dir/http-proxy.cpp.o
+[ 98%] Linking CXX executable http-proxy
+[ 98%] Built target http-proxy
+Scanning dependencies of target rldp-http-proxy
+[ 98%] Building CXX object rldp-http-proxy/CMakeFiles/rldp-http-proxy.dir/rldp-http-proxy.cpp.o
+[100%] Linking CXX executable rldp-http-proxy
+[100%] Built target rldp-http-proxy
+--2020-04-30 16:40:28--  https://test.ton.org/ton-global.config.json
+Resolving test.ton.org (test.ton.org)... 13.226.159.60, 13.226.159.56, 13.226.159.92, ...
+Connecting to test.ton.org (test.ton.org)|13.226.159.60|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 77262 (75K) [application/json]
+Saving to: ‘ton-global.config.json’
+
+ton-global.config.json                          100%[====================================================================================================>]  75.45K  --.-KB/s    in 0.005s
+
+2020-04-30 16:40:28 (14.5 MB/s) - ‘ton-global.config.json’ saved [77262/77262]
+
+
+Start validator from systemctl
+example (mind IP): validator-engine -C /srv/ton/ton-global.config.json --db /srv/ton/db/ -l /srv/ton/log --ip 185.95.213.104:8081 -t 32
+test validator console: build/utils/validator-engine -C /srv/ton/ton-global.config.json --db /srv/ton/db/ -l /srv/ton/log --ip 185.95.213.104:8081 -t 32
+test lite-server: build/utils/lite-client -a 185.95.213.104:8383 -p liteserver.pub
