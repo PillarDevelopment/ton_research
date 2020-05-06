@@ -2,4 +2,22 @@ cd /home/validator/build_ton/utils
 
 lite-client -a 185.95.213.104:8383 -p liteserver.pub
 
-js console
+
+34l2k34j212d
+
+[ 3][t 1][1588708052.741681576][lite-client.cpp:2488][!testnode]        requesting 1 configuration parameters with respect to masterchain block (-1,8000000000000000,3608991):962CCAE18982964570431786DBFD8E063FBA22DDE019CEEC7F3AE4EA679386AD:1C4D6F7DF50CDCDD495257790637BCD49902B018AEE524F60A5A8FBB4B1E70B9
+[ 3][t 1][1588708052.757445812][lite-client.cpp:2504][!testnode]        got configuration parameters
+ConfigParam(1) = ( elector_addr:x3333333333333333333333333333333333333333333333333333333333333333)
+x{3333333333333333333333333333333333333333333333333333333333333333}
+
+
+
+lite-client -C </srv/ton/etc/ton-global.config.json> -c 'getconfig 1'
+
+root@ton-testnet-validator-01:~/build_ton/utils# lite-client -C </srv/ton/etc/ton-global.config.json> -c 'getconfig 1'
+[ 0][t 1][1588710390.435513258][Status.h:571][!testnode][&status_.is_ok()]      [PosixError : No such file or directory : 2 : File "getconfig 1" can't be opened for reading]
+[pid 8477] [time 1588710390] Signal: 6
+[ 0][t 0][1588710390.437158823][Epoll.cpp:75][!terminal io][&err == -1] [PosixError : Operation not permitted : 1 : epoll_ctl ADD failed], epoll_fd = 4, fd = 0
+[pid 8477] [time 1588710390] Signal: 6
+
+validator-engine-console -k client -p server.pub -a 185.95.213.104:8282

@@ -1,0 +1,39 @@
+validatorWallet$ ./show-addr.fif
+Source wallet address = WA
+Non-bounceable address (for init only): NBA
+Bounceable address (for later access): BA
+
+./0.show_elector_addr.sh
+x333
+
+./00.show_current_elections.sh
+result:  [ X ]
+
+./7.show_validator_period.sh
+validators_elected_for: Y
+
+>newkey
+create new key A
+>exportpub A
+got public key B
+>addpermkey A X X+Y+3600=C
+>addtempkey A A C
+>newkey
+create new key D
+>addadnl D 0
+>addvalidatoraddr A D C
+// до сюда я сделал
+
+
+fift -s validator-elect-req.fif BA X 2.7 D
+output after ADN address [654654]
+>sign A 654654
+got signature S
+fift -s validator-elect-signed.fif BA X 2.7 D B S
+Saved to file validator-query.boc
+/2.send_gramm_to_elector.sh x333 10001
+
+This is an external message signed by your private key (which controls your wallet); it instructs your wallet smart contract to send an internal message to the elector smart contract with the prescribed payload (containing the validator bid and signed by its key) and transfer the specified amount of Grams. When the elector smart contract receives this internal message, it registers your bid (with the stake equal to the specified amount of Grams minus one), and sends you (i.e., the wallet smart contract) a confirmation (carrying 1 Gram minus message forwarding fees back) or a rejection message with an error code (carrying back almost all of the original stake amount minus processing fees).
+
+You can check whether your stake has been accepted by running get-method "participant_list" of the elector smart contract.
+~
